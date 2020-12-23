@@ -80,7 +80,7 @@
         android:layout_width="260dp"
         android:layout_height="218dp"
         android:scaleType="fitXY"
-        android:src="@drawable/restaurantdropshadow"
+        android:src="@drawable/dropshadow"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/restaurantcard" />
 

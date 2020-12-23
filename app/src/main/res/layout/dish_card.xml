@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dishcard"
+        android:layout_width="324dp"
+        android:layout_height="107dp"
+        android:elevation="1dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintLeft_toLeftOf="@+id/dishimagecard"
+        app:layout_constraintTop_toTopOf="@+id/dishimagecard"
+        />
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dishimagecard"
+        android:layout_width="109dp"
+        android:layout_height="107dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:elevation="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="19dp"
+        >
+        <ImageView
+            android:id="@+id/dishimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/steak"
+            android:scaleType="centerCrop"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/dishname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/dishimagecard"
+        app:layout_constraintTop_toTopOf="@id/dishcard"
+        android:text="Dish Name"
+        android:textColor="@color/text1"
+        android:fontFamily="@font/playfair_display_bold"
+        android:textSize="18sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:elevation="5dp"
+        />
+
+    <TextView
+        android:id="@+id/dishdescription"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/dishname"
+        app:layout_constraintTop_toBottomOf="@+id/dishname"
+        android:text="description description description"
+        android:textColor="@color/text2"
+        android:fontFamily="@font/open_sans_italic"
+        android:textSize="13sp"
+        android:layout_marginTop="5dp"
+        android:elevation="5dp"
+        />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/dishdescription"
+        app:layout_constraintLeft_toLeftOf="@+id/dishname"
+        android:text="$$"
+        android:textColor="@color/text1"
+        android:fontFamily="@font/playfair_display_bold"
+        android:layout_marginTop="2dp"
+        android:textSize="18sp"
+        android:elevation="5dp"
+        />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/price"
+        app:layout_constraintTop_toTopOf="@+id/price"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="3dp"
+        android:scaleX="1.25"
+        android:scaleY="1.25"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:rating="3.5"
+        android:theme="@style/RatingBar"
+        android:elevation="5dp"
+        />
+
+    <ImageView
+        android:layout_width="342dp"
+        android:layout_height="121dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/dropshadow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
