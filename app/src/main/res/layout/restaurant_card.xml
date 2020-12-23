@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/restaurantcard"
+        android:layout_width="244dp"
+        android:layout_height="204dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginLeft="19dp"
+        >
+
+        <ImageView
+            android:id="@+id/restaurantimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/steak"
+            android:scaleType="centerCrop"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/restaurantinfocard"
+            android:layout_width="172dp"
+            android:layout_height="75dp"
+            app:cardCornerRadius="10dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="13dp"
+            android:layout_marginBottom="12dp"
+            >
+
+            <TextView
+                android:id="@+id/restaurantname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="12dp"
+                android:textSize="18sp"
+                android:fontFamily="@font/playfair_display_bold"
+                android:textColor="@color/text1"
+                android:text="Restaurant" />
+
+            <TextView
+                android:id="@+id/restaurantcategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="26dp"
+                android:text="Category"
+                android:textSize="13sp"
+                android:fontFamily="@font/open_sans_italic"
+                android:textColor="@color/text2"
+                />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginBottom="9dp"
+                android:scaleX="1.25"
+                android:scaleY="1.25"
+                android:layout_gravity="bottom"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="4.5"
+                android:theme="@style/RatingBar"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_marginLeft="10dp"
+        android:layout_width="260dp"
+        android:layout_height="218dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/restaurantdropshadow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/restaurantcard" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
