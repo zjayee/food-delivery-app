@@ -71,15 +71,40 @@
             android:layout_marginTop="2dp"
             />
 </LinearLayout>
+    <ImageView
+        android:id="@+id/searchbackground"
+        android:layout_width="380dp"
+        android:layout_height="80dp"
+        android:src="@drawable/searchbackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:scaleType="fitXY"
+        android:layout_marginTop="78dp"
+
+        />
 
     <SearchView
+        android:id="@+id/searchview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/headertopbackground"
+        app:layout_constraintTop_toTopOf="@id/searchbackground"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:iconifiedByDefault="false"
+        android:queryBackground="@color/transparent"
+        android:queryHint="Search Restaurants..."
+        android:theme="@style/AppSearchView"
+        android:layout_marginTop="12dp"
+        />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/searchbackground"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_divider"
+        android:scaleType="fitXY"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
