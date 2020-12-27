@@ -12,6 +12,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="19dp"
+        app:cardElevation="10dp"
         >
 
         <ImageView
@@ -75,13 +76,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:layout_marginLeft="10dp"
-        android:layout_width="260dp"
-        android:layout_height="218dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/dropshadow"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/restaurantcard" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
