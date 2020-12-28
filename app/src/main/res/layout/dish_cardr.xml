@@ -54,6 +54,20 @@
         />
 
     <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/dishname"
+        app:layout_constraintLeft_toRightOf="@id/dishname"
+        android:elevation="15dp"
+        android:textSize="18sp"
+        android:layout_marginLeft="40dp"
+        android:text="$$"
+        android:textColor="@color/text1"
+        android:fontFamily="@font/playfair_display_bold"
+        />
+
+    <TextView
         android:id="@+id/dishdescription"
         android:layout_width="134dp"
         android:layout_height="wrap_content"
