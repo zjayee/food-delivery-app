@@ -8,12 +8,12 @@
         android:id="@+id/categoryimagecard"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:layout_width="59dp"
         android:layout_height="59dp"
         app:cardCornerRadius="50dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="10dp"
         app:cardElevation="10dp"
+        android:layout_margin="10dp"
         >
 
     <ImageView
