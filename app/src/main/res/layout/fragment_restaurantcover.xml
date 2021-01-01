@@ -27,6 +27,7 @@
         android:layout_marginTop="211dp"
         app:cardCornerRadius="15dp"
         app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/cardbackground"
         >
     <TextView
         android:id="@+id/restaurantname"

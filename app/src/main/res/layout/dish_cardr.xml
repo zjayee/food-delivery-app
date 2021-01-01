@@ -13,6 +13,7 @@
         app:cardCornerRadius="15dp"
         app:layout_constraintLeft_toLeftOf="@+id/dishimagecard"
         app:layout_constraintTop_toTopOf="@+id/dishimagecard"
+        app:cardBackgroundColor="@color/cardbackground"
         />
 
 
@@ -27,6 +28,7 @@
         app:cardElevation="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="19dp"
+        app:cardBackgroundColor="@color/cardbackground"
         >
         <ImageView
             android:id="@+id/dishimage"
