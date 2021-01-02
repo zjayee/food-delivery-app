@@ -1,7 +1,10 @@
 package com.example.goa_project3;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
+import androidx.core.widget.ImageViewCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -94,6 +97,13 @@ public class categorylist extends Fragment {
         fastfoodtext.setText("Fast Food");
         greektext.setText("Greek");
 
+    //set colour of icons
+        ImageViewCompat.setImageTintList(veganicon, ColorStateList.valueOf(ContextCompat.getColor(rootView.getContext(), R.color.text2)));
+        ImageViewCompat.setImageTintList(asianicon, ColorStateList.valueOf(ContextCompat.getColor(rootView.getContext(), R.color.text2)));
+        ImageViewCompat.setImageTintList(westernicon, ColorStateList.valueOf(ContextCompat.getColor(rootView.getContext(), R.color.text2)));
+        ImageViewCompat.setImageTintList(mexicanicon, ColorStateList.valueOf(ContextCompat.getColor(rootView.getContext(), R.color.text2)));
+        ImageViewCompat.setImageTintList(fastfoodicon, ColorStateList.valueOf(ContextCompat.getColor(rootView.getContext(), R.color.text2)));
+        ImageViewCompat.setImageTintList(greekicon, ColorStateList.valueOf(ContextCompat.getColor(rootView.getContext(), R.color.text2)));
     }
 
     private void setButtons(){
