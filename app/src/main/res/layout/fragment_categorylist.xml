@@ -53,12 +53,6 @@
             layout="@layout/category_card"
             />
 
-        <include
-            android:id="@+id/european"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            layout="@layout/category_card"
-            />
 
     </LinearLayout>
 
