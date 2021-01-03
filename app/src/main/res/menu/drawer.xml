@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="Home"
+        />
+
+    <item
+        android:id="@+id/hcart"
+        android:icon="@drawable/ic_cart"
+        android:title="My Cart"
+        />
+
+    <item
+        android:id="@+id/hordertracking"
+        android:icon="@drawable/ic_map"
+        android:title="Order Tracking"
+        />
+
+    <item
+        android:id="@+id/hsavedrestaurants"
+        android:icon="@drawable/ic_heart"
+        android:title="Saved Restaurants"
+        />
+
+
+</menu>

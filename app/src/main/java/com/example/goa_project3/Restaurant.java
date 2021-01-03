@@ -7,9 +7,9 @@ public class Restaurant {
     private String cuisine;
     private Integer image;
     private ArrayList<Category> categories;
-    private Double rating;
+    private float rating;
 
-    public Restaurant(String name, String cuisine, Integer image, ArrayList<Category> categories, Double rating ){
+    public Restaurant(String name, String cuisine, Integer image, ArrayList<Category> categories, float rating ){
         this.name = name;
         this.cuisine = cuisine;
         this.image = image;
@@ -33,7 +33,7 @@ public class Restaurant {
         return categories;
     }
 
-    public Double getRating() {
+    public float getRating() {
         return rating;
     }
 }
