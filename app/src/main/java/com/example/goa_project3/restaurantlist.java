@@ -111,8 +111,7 @@ public class restaurantlist extends Fragment {
     }
 
     private void userTappedOnPosition(int position){
-        //TODO: setup this
-        //video time instructions: 28min
+        //TODO: Navigate to restaurant details screen
 
     }
 

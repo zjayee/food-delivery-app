@@ -11,6 +11,7 @@
     >
 
     <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -25,12 +26,6 @@
             />
 
 
-        <fragment
-            android:id="@+id/restaurantlist"
-            android:name="com.example.goa_project3.header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/fragment_restaurantlist" />
 
     </LinearLayout>
 
