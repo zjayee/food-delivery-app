@@ -93,15 +93,16 @@ public class restaurantlist extends Fragment {
         switch (heading)
         {
             case "Recommended":
-                params.height = 203;
+                params.height = 609;
                 break;
             case "Recents":
-                params.height = 167;
+                params.height = 501;
                 break;
         }
 
         //create linear layout manager for recycler view
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView.setLayoutManager(layoutManager);
 
         //set adaptor
@@ -151,7 +152,7 @@ public class restaurantlist extends Fragment {
 
         @Override
         public int getItemCount() {
-            return 0;
+            return restaurants.size();
         }
     }
 
@@ -168,7 +169,8 @@ public class restaurantlist extends Fragment {
             this.itemView = itemView;
             restaurantImage = itemView.findViewById(R.id.restaurantimage);
             restaurantName = itemView.findViewById(R.id.restaurantname);
-            restaurantCategory = itemView.findViewById(R.id.ratingBar);
+            restaurantCategory = itemView.findViewById(R.id.restaurantcategory);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
 
         }
     }
