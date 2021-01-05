@@ -9,14 +9,14 @@ public class Dish {
     private String description;
     private Integer image;
     private Integer price;
-    private Double rating;
+    private float rating;
 
     public Dish(@NonNull String name, @NonNull String description, @NonNull Integer image, @NonNull Integer price){
         this.name = name;
         this.description = description;
         this.image = image;
         this.price = price;
-        this.rating = Math.random()*3+2;
+        this.rating = (float)Math.random()*3+2;
     }
 
 
@@ -48,7 +48,7 @@ public class Dish {
         return price;
     }
 
-    public Double getRating(){
+    public float getRating(){
         return rating;
     }
 
