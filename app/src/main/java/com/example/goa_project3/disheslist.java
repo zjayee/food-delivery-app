@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link restaurantlist#newInstance} factory method to
+ * Use the {@link disheslist#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class disheslist extends Fragment {
@@ -44,11 +44,11 @@ public class disheslist extends Fragment {
      *
      * @param heading title of list
      * @param dishes contents of list
-     * @return A new instance of fragment restaurantlist.
+     * @return A new instance of fragment disheslist.
      */
     // TODO: Rename and change types and number of parameters
-    public static restaurantlist newInstance(String heading, ArrayList<Dish> dishes) {
-        restaurantlist fragment = new restaurantlist();
+    public static disheslist newInstance(String heading, ArrayList<Dish> dishes) {
+        disheslist fragment = new disheslist();
         Bundle args = new Bundle();
         args.putString(HEADING, heading);
         args.putSerializable(DISHES, dishes);
@@ -101,7 +101,7 @@ public class disheslist extends Fragment {
     }
 
     private void userTappedOnPosition(int position){
-        //TODO: Navigate to restaurant details screen
+        //TODO: Navigate to dishes details screen
 
     }
 

@@ -25,15 +25,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         createsamplerestaurantfortesting();
+        createsampledishesfortesting();
         setuprecommendedffragment();
-       // setupcategories();
-
+        setuppromotions();
 
 
     }
 
 
     ArrayList<Restaurant> recommendedrestaurants = new ArrayList<>();
+    ArrayList<Dish> promotiondishes = new ArrayList<>();
     LinearLayout linearLayout;
 
     void createsamplerestaurantfortesting(){
@@ -45,8 +46,17 @@ public class MainActivity extends AppCompatActivity {
         recommendedrestaurants.add(restaurant2);
     }
 
+    void createsampledishesfortesting(){
+        Dish dish = new Dish("a","bc", R.drawable.steak, 30);
+        Dish dish1 = new Dish("c","bc", R.drawable.steak, 30);
+        Dish dish2 = new Dish("d","bc", R.drawable.steak, 30);
+        promotiondishes.add(dish);
+        promotiondishes.add(dish1);
+        promotiondishes.add(dish2);
+    }
+
     void setuprecommendedffragment(){
-        linearLayout = findViewById(R.id.linearlayout);
+
         //fragment manager
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -61,18 +71,21 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-//    void setupcategories(){
-//        linearLayout = findViewById(R.id.linearlayout);
-//        TextView categoriestext = new TextView(this);
-//        categoriestext.setText("Categories");
-//        categoriestext.setId(View.generateViewId());
-//        categoriestext.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-//        Typeface font = ResourcesCompat.getFont(this, R.font.playfair_display_bold);
-//        categoriestext.setTypeface(font);
-//        categoriestext.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
-//        categoriestext.setTextColor(getResources().getColor(R.color.text1,null));
-//        linearLayout.addView(categoriestext);
-//
-//    }
+    void setuppromotions(){
+        //fragment manager
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        //create disheslist fragment
+        Fragment disheslist = com.example.goa_project3.disheslist.newInstance("Promotions",promotiondishes);
+
+        //add to linear layout
+        fragmentTransaction.replace(R.id.promotions, disheslist,null);
+
+        //end fragment transaction
+        fragmentTransaction.commit();
+    }
+
+
 }
 
