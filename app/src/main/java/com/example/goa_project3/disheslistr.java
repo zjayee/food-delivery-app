@@ -23,10 +23,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link disheslist#newInstance} factory method to
+ * Use the {@link disheslistr#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class disheslist extends Fragment {
+public class disheslistr extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +34,7 @@ public class disheslist extends Fragment {
     private static final String DISHES = "dishes";
 
 
-    public disheslist() {
+    public disheslistr() {
         // Required empty public constructor
     }
 
@@ -47,8 +47,8 @@ public class disheslist extends Fragment {
      * @return A new instance of fragment disheslist.
      */
     // TODO: Rename and change types and number of parameters
-    public static disheslist newInstance(String heading, ArrayList<Dish> dishes) {
-        disheslist fragment = new disheslist();
+    public static disheslistr newInstance(String heading, ArrayList<Dish> dishes) {
+        disheslistr fragment = new disheslistr();
         Bundle args = new Bundle();
         args.putString(HEADING, heading);
         args.putSerializable(DISHES, dishes);
@@ -70,7 +70,7 @@ public class disheslist extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_disheslist, container, false);
+        rootView = inflater.inflate(R.layout.fragment_disheslistr, container, false);
         setupHeading();
         setupRecyclerView();
         return rootView;
@@ -89,7 +89,7 @@ public class disheslist extends Fragment {
 
     private void  setupRecyclerView(){
         recyclerView = rootView.findViewById(R.id.dishrecyclerview);
-       recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setNestedScrollingEnabled(false);
         //create linear layout manager for recycler view
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -117,7 +117,7 @@ public class disheslist extends Fragment {
         @Override
         public DishViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(context);
-            View itemView = inflater.inflate(R.layout.dish_card, parent, false);
+            View itemView = inflater.inflate(R.layout.dish_cardr, parent, false);
             DishViewHolder viewHolder = new DishViewHolder(itemView);
             return viewHolder;
 
@@ -131,7 +131,6 @@ public class disheslist extends Fragment {
             holder.dishname.setText(dish.getName());
             holder.dishdescription.setText(dish.getDescription());
             holder.dishprice.setText("$"+dish.getPrice());
-            holder.ratingbar.setRating(dish.getRating());
 
             //TODO: change
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +155,7 @@ public class disheslist extends Fragment {
         public TextView dishname;
         public TextView dishdescription;
         public TextView dishprice;
-        public RatingBar ratingbar;
+
 
         public DishViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -165,7 +164,7 @@ public class disheslist extends Fragment {
             this.dishname = itemView.findViewById(R.id.dishname);
             this.dishdescription = itemView.findViewById(R.id.dishdescription);
             this.dishprice = itemView.findViewById(R.id.price);
-            this.ratingbar = itemView.findViewById(R.id.ratingBar);
+
 
         }
     }
