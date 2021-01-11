@@ -12,6 +12,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         createsampledishesfortesting();
         setuprecommendedffragment();
         setuppromotions();
-
+        setupmenu();
 
     }
 
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Restaurant> recommendedrestaurants = new ArrayList<>();
     ArrayList<Dish> promotiondishes = new ArrayList<>();
     LinearLayout linearLayout;
+    ImageButton menubutton;
+    View headerfragment;
 
     void createsamplerestaurantfortesting(){
         Restaurant restaurant = new Restaurant("a","b",R.drawable.steak, null, (float) 3.4);
@@ -84,6 +88,34 @@ public class MainActivity extends AppCompatActivity {
 
         //end fragment transaction
         fragmentTransaction.commit();
+    }
+
+    void setupmenu(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+       Fragment menu = com.example.goa_project3.menu.newInstance("home");
+
+       fragmentTransaction.replace(R.id.menu, menu, null);
+
+        //end fragment transaction
+        fragmentTransaction.commit();
+
+        View menuview = findViewById(R.id.menu);
+        headerfragment = findViewById(R.id.headerfragment);
+        menubutton = headerfragment.findViewById(R.id.menubutton);
+
+        menuview.setVisibility(View.INVISIBLE);
+
+        menubutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuview.setVisibility(View.VISIBLE);
+            }
+        });
+
+        //TODO: disappear when click outside
+
     }
 
 

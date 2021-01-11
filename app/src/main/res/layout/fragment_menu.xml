@@ -11,12 +11,21 @@
         app:cardBackgroundColor="@color/background"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="150dp"
-        android:layout_width="550dp"
+        android:layout_width="570dp"
         android:layout_height="match_parent"
         app:cardCornerRadius="30dp"
         app:cardElevation="10dp"
         >
 
+        <ImageView
+            android:id="@+id/selectedbackground"
+            android:layout_width="320dp"
+            android:layout_height="92dp"
+            android:src="@drawable/menuselected"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="175dp"
+            />
 
 </androidx.cardview.widget.CardView>
 
@@ -33,7 +42,7 @@
         android:layout_width="match_parent"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_height="84dp"
-        android:backgroundTint="@color/transparent"
+        android:backgroundTint="@null"
         android:text="Home"
         android:textColor="@color/text1"
         android:fontFamily="@font/playfair_display_bold"
@@ -41,6 +50,7 @@
         android:textAlignment="textStart"
         android:paddingLeft="30dp"
         android:textAllCaps="false"
+
         />
         <Button
             android:id="@+id/cartbutton"
@@ -61,7 +71,7 @@
             android:layout_width="match_parent"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_height="84dp"
-            android:backgro59undTint="@color/transparent"
+            android:backgroundTint="@color/transparent"
             android:text="Track Order"
             android:textColor="@color/text1"
             android:fontFamily="@font/playfair_display_bold"
@@ -75,7 +85,6 @@
             android:layout_width="match_parent"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_height="84dp"
-            android:backgroundTint="@null"
             android:text="Favourites"
             android:textColor="@color/text1"
             android:fontFamily="@font/playfair_display_bold"
@@ -83,7 +92,6 @@
             android:textAlignment="textStart"
             android:paddingLeft="30dp"
             android:textAllCaps="false"
-            
             />
         <Button
             android:id="@+id/rewardsbutton"
