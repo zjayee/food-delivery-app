@@ -1,7 +1,9 @@
 package com.example.goa_project3;
 
+import android.media.Image;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
@@ -9,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -73,6 +77,8 @@ public class menu extends Fragment {
     private Button order;
     private Button favourites;
     private Button rewards;
+    private ImageButton nightmode;
+    boolean isNight = false;
 
     private  void  setupselected(){
         int margintop=0;
@@ -108,6 +114,8 @@ public class menu extends Fragment {
         order = rootView.findViewById(R.id.trackorderbutton);
         favourites = rootView.findViewById(R.id.favouritesbutton);
         rewards = rootView.findViewById(R.id.rewardsbutton);
+        nightmode = rootView.findViewById(R.id.nightmodebutton);
+
         //TODO: set on click listeners to go to pages
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,5 +151,19 @@ public class menu extends Fragment {
 
             }
         });
+
+        nightmode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isNight == false){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    isNight = true;
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    isNight = false;
+                }
+            }
+        });
+
     }
 }

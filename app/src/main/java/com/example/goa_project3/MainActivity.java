@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout linearLayout;
     ImageButton menubutton;
     View headerfragment;
+    FrameLayout outsidebox;
+
 
     void createsamplerestaurantfortesting(){
         Restaurant restaurant = new Restaurant("a","b",R.drawable.steak, null, (float) 3.4);
@@ -105,16 +108,31 @@ public class MainActivity extends AppCompatActivity {
         headerfragment = findViewById(R.id.headerfragment);
         menubutton = headerfragment.findViewById(R.id.menubutton);
 
+
         menuview.setVisibility(View.INVISIBLE);
 
         menubutton.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
-                menuview.setVisibility(View.VISIBLE);
+                if(menuview.getVisibility()==View.INVISIBLE) {
+                    menuview.setVisibility(View.VISIBLE);
+                }
+
+                outsidebox = menuview.findViewById(R.id.outsidebox);
+                outsidebox.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(menuview.getVisibility()==View.VISIBLE){
+                            menuview.setVisibility(View.INVISIBLE);
+                        }
+                    }
+                });
+
             }
         });
 
-        //TODO: disappear when click outside
+
 
     }
 
