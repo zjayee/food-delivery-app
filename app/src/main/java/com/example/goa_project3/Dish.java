@@ -2,9 +2,10 @@ package com.example.goa_project3;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Dish {
+public class Dish implements Serializable {
     private String name;
     private String description;
     private Integer image;

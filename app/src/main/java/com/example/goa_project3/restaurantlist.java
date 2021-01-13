@@ -1,6 +1,7 @@
 package com.example.goa_project3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -112,7 +113,9 @@ public class restaurantlist extends Fragment {
     }
 
     private void userTappedOnPosition(int position){
-        //TODO: Navigate to restaurant details screen
+        Intent intent = new Intent(getContext(),RestaurantActivity.class);
+        intent.putExtra("restaurant", restaurants.get(position));
+        startActivity(intent);
 
     }
 

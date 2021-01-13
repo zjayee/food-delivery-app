@@ -4,13 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RestaurantActivity">
+    tools:context=".RestaurantActivity"
+    android:background="@color/background"
+    >
+    <androidx.cardview.widget.CardView
 
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="16dp"
+        >
+
+        <ImageButton
+            android:id="@+id/backbutton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:backgroundTint="@color/transparent"
+            android:src="@drawable/ic_back"
+            android:layout_gravity="center"
+            />
+    </androidx.cardview.widget.CardView>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    >
     <FrameLayout
         android:id="@+id/restaurantcover"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         />
+
+</ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

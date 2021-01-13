@@ -82,10 +82,10 @@ public class restaurantcover extends Fragment {
         restaurantName.setText(restaurant.getName());
         locationName.setText("Vancouver");
 
-        Integer min = (int)Math.random()*20+1;
-        Integer max = min+10;
+        Integer min = (int)Math.random()*20+4;
+        Integer max = min+(int)Math.random()*5+5;
 
-        timetext.setText(min.toString()+max);
+        timetext.setText(min.toString()+"-"+max);
         ratingBar.setRating(restaurant.getRating());
         coverImage.setImageResource(restaurant.getImage());
 

@@ -7,10 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class RestaurantActivity extends AppCompatActivity {
 
     Restaurant restaurant;
+    ImageButton backbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,7 @@ public class RestaurantActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
         restaurant = (Restaurant)extras.getSerializable("restaurant");
 
-
+        setupBackButton();
         setupRestaurantCover();
 
     }
@@ -39,5 +42,16 @@ public class RestaurantActivity extends AppCompatActivity {
         //end fragment transaction
         fragmentTransaction.commit();
 
+    }
+
+    void setupBackButton(){
+        backbutton = findViewById(R.id.backbutton);
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
