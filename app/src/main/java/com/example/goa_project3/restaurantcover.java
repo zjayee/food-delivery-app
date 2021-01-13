@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,12 +21,10 @@ public class restaurantcover extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String RESTAURANT = "restaurant";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Restaurant restaurant;
 
     public restaurantcover() {
         // Required empty public constructor
@@ -32,16 +34,14 @@ public class restaurantcover extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param restaurant Parameter 1.
      * @return A new instance of fragment restaurantcover.
      */
     // TODO: Rename and change types and number of parameters
-    public static restaurantcover newInstance(String param1, String param2) {
+    public static restaurantcover newInstance(Restaurant restaurant) {
         restaurantcover fragment = new restaurantcover();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable(RESTAURANT, restaurant);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,8 +50,7 @@ public class restaurantcover extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            restaurant = (Restaurant)getArguments().getSerializable(RESTAURANT);
         }
     }
 
@@ -59,6 +58,38 @@ public class restaurantcover extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_restaurantcover, container, false);
+        rootView = inflater.inflate(R.layout.fragment_restaurantcover, container, false);
+        setUp();
+        return rootView;
+    }
+
+    private View rootView;
+    private TextView restaurantName;
+    private TextView locationName;
+    private TextView timetext;
+    private ImageView coverImage;
+    private ImageButton favouritebutton;
+    private RatingBar ratingBar;
+
+    private void setUp(){
+        restaurantName = rootView.findViewById(R.id.restaurantname);
+        locationName = rootView.findViewById(R.id.locationtextview);
+        timetext = rootView.findViewById(R.id.timenumbertextview);
+        ratingBar = rootView.findViewById(R.id.ratingBar);
+        coverImage = rootView.findViewById(R.id.restaurantimage);
+        favouritebutton = rootView.findViewById(R.id.favouritesbutton);
+
+        restaurantName.setText(restaurant.getName());
+        locationName.setText("Vancouver");
+
+        Integer min = (int)Math.random()*20+1;
+        Integer max = min+10;
+
+        timetext.setText(min.toString()+max);
+        ratingBar.setRating(restaurant.getRating());
+        coverImage.setImageResource(restaurant.getImage());
+
+
+
     }
 }

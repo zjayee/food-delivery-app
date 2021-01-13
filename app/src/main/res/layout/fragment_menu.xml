@@ -50,7 +50,6 @@
         android:textAlignment="textStart"
         android:paddingLeft="30dp"
         android:textAllCaps="false"
-        android:background="@drawable/menuselected"
 
         />
         <Button
@@ -161,15 +160,24 @@
             app:tint="@color/text3" />
 
     </LinearLayout>
-
+<androidx.cardview.widget.CardView
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    app:layout_constraintBottom_toBottomOf="@id/card"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:cardElevation="11dp"
+    app:cardBackgroundColor="@color/cardbackground"
+    app:cardCornerRadius="50dp"
+    android:layout_margin="15dp"
+    >
 <ImageButton
     android:id="@+id/nightmodebutton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:backgroundTint="@color/transparent"
-    android:src="@drawable/nighticon"
-    android:elevation="10dp"
-    app:layout_constraintBottom_toBottomOf="@id/card"
-    app:layout_constraintLeft_toLeftOf="parent"
+    android:src="@drawable/ic_nightmode"
+    android:layout_gravity="center"
+    android:tint="@color/highlightcolor"
     />
+</androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

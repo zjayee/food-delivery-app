@@ -1,8 +1,9 @@
 package com.example.goa_project3;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Restaurant {
+public class Restaurant implements Serializable {
     private String name;
     private String cuisine;
     private Integer image;

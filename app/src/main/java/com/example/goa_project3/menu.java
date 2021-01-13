@@ -1,5 +1,6 @@
 package com.example.goa_project3;
 
+import android.annotation.SuppressLint;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -81,6 +82,7 @@ public class menu extends Fragment {
 
 
 
+    @SuppressLint("ResourceAsColor")
     private void setupbuttons(){
         home = rootView.findViewById(R.id.homebutton);
         cart = rootView.findViewById(R.id.cartbutton);
@@ -88,6 +90,9 @@ public class menu extends Fragment {
         favourites = rootView.findViewById(R.id.favouritesbutton);
         rewards = rootView.findViewById(R.id.rewardsbutton);
         nightmode = rootView.findViewById(R.id.nightmodebutton);
+        home.setBackgroundColor(R.color.transparent);
+
+        home.setBackgroundResource(R.drawable.menuselected);
 
         //TODO: set on click listeners to go to pages
         home.setOnClickListener(new View.OnClickListener() {
