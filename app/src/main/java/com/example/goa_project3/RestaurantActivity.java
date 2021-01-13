@@ -26,6 +26,7 @@ public class RestaurantActivity extends AppCompatActivity {
 
         setupBackButton();
         setupRestaurantCover();
+        setupDishesFragment();
 
     }
 
@@ -53,5 +54,9 @@ public class RestaurantActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    void setupDishesFragment(){
+        //TODO: setup
     }
 }

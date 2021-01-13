@@ -133,18 +133,7 @@
             android:layout_marginLeft="188dp"
             />
 
-        <TextView
-            android:id="@+id/timemintextview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="mins"
-            android:fontFamily="@font/open_sans_bold"
-            android:textColor="@color/text2"
-            android:textSize="11.5dp"
-            android:layout_marginTop="100dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"
-            />
+
     </androidx.cardview.widget.CardView>
 
 

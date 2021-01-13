@@ -85,7 +85,7 @@ public class restaurantcover extends Fragment {
         Integer min = (int)Math.random()*20+4;
         Integer max = min+(int)Math.random()*5+5;
 
-        timetext.setText(min.toString()+"-"+max);
+        timetext.setText(min.toString()+"-"+max+" min");
         ratingBar.setRating(restaurant.getRating());
         coverImage.setImageResource(restaurant.getImage());
 

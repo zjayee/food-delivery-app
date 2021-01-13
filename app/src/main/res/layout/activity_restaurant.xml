@@ -42,4 +42,65 @@
 
 </ScrollView>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:layout_constraintTop_toTopOf="@id/bottomhelperview"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@color/transluscentcard"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="333dp"
+            android:layout_height="67dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="@color/highlightcolor"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="2dp"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 items"
+            android:fontFamily="@font/open_sans_bold"
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="25dp"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text1"
+                android:text="To Checkout"
+                android:fontFamily="@font/playfair_display_bold"
+                android:textSize="19sp"
+                android:layout_gravity="center"
+                />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_cart"
+                app:tint="@color/white"
+                android:layout_gravity="right"
+                android:layout_marginTop="23dp"
+                android:layout_marginRight="19dp"
+
+                />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/bottomhelperview"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/transparent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
