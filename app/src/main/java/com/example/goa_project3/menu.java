@@ -66,7 +66,6 @@ public class menu extends Fragment {
         // Inflate the layout for this fragment
 
         rootView = inflater.inflate(R.layout.fragment_menu, container, false);
-        setupselected();
         setupbuttons();
         return  rootView;
     }
@@ -80,33 +79,7 @@ public class menu extends Fragment {
     private ImageButton nightmode;
     boolean isNight = false;
 
-    private  void  setupselected(){
-        int margintop=0;
-        switch (currentPage){
-            case "home":
-              margintop = 0;
-              break;
-            case "cart":
-              margintop = 84;
-              break;
-            case "order":
-                margintop = 168;
-                break;
-            case "favourites":
-                margintop = 252;
-                break;
-            case "rewards":
-                margintop = 336;
-                break;
-        }
-        CardView card = rootView.findViewById(R.id.card);
-        ImageView selectedbackground = rootView.findViewById(R.id.selectedbackground);
-        ViewGroup.MarginLayoutParams layoutParams =
-                (ViewGroup.MarginLayoutParams) selectedbackground.getLayoutParams();
-        layoutParams.setMargins(0, margintop, 0, 0);
-        selectedbackground.requestLayout();
 
-    }
 
     private void setupbuttons(){
         home = rootView.findViewById(R.id.homebutton);
