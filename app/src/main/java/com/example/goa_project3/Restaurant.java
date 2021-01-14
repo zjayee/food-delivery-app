@@ -2,19 +2,20 @@ package com.example.goa_project3;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Restaurant implements Serializable {
     private String name;
     private String cuisine;
     private Integer image;
-    private ArrayList<Category> categories;
+    private HashMap<String, ArrayList<Dish>> menu;
     private float rating;
 
-    public Restaurant(String name, String cuisine, Integer image, ArrayList<Category> categories, float rating ){
+    public Restaurant(String name, String cuisine, Integer image, HashMap<String, ArrayList<Dish>> menu, float rating ){
         this.name = name;
         this.cuisine = cuisine;
         this.image = image;
-        this.categories = categories;
+        this.menu = menu;
         this.rating = rating;
     }
 
@@ -30,8 +31,8 @@ public class Restaurant implements Serializable {
         return image;
     }
 
-    public ArrayList<Category> getCategories() {
-        return categories;
+    public HashMap<String,ArrayList<Dish>> getMenu(){
+        return menu;
     }
 
     public float getRating() {

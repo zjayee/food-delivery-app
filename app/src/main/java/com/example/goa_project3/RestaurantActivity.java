@@ -10,10 +10,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class RestaurantActivity extends AppCompatActivity {
 
     Restaurant restaurant;
     ImageButton backbutton;
+    HashMap menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,29 @@ public class RestaurantActivity extends AppCompatActivity {
     }
 
     void setupDishesFragment(){
-        //TODO: setup
+
+        menu = restaurant.getMenu();
+        Iterator it = menu.entrySet().iterator();
+        while (it.hasNext()){
+            String heading;
+            ArrayList<Dish> dishes;
+            Map.Entry pair = (Map.Entry)it.next();
+            heading = (String)pair.getKey();
+            dishes = (ArrayList<Dish>)pair.getValue();
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            //create disheslist fragment
+            Fragment disheslist = disheslistr.newInstance(heading, dishes);
+
+            //add to linear layout
+            fragmentTransaction.add(R.id.promotions, disheslist,null);
+
+            //end fragment transaction
+            fragmentTransaction.commit();
+
+        }
+
     }
 }
