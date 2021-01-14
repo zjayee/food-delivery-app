@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="19dp"
+    >
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dishimagecard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
+        android:layout_marginLeft="20dp"
+
+        >
+    <ImageView
+        android:id="@+id/dishimage"
+        android:layout_width="109dp"
+        android:layout_height="109dp"
+        android:src="@drawable/steak"
+        android:scaleType="centerCrop"
+        />
+
+
+
+
+    </androidx.cardview.widget.CardView><TextView
+    android:id="@+id/dishname"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintLeft_toRightOf="@+id/dishimagecard"
+    app:layout_constraintTop_toTopOf="@id/dishimagecard"
+    android:text="Dish Name"
+    android:textColor="@color/text1"
+    android:fontFamily="@font/playfair_display_bold"
+    android:textSize="18sp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="10dp"
+
+    />
+
+    <TextView
+        android:id="@+id/dishdescription"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/dishname"
+        app:layout_constraintTop_toBottomOf="@+id/dishname"
+        android:text="description description description"
+        android:textColor="@color/text2"
+        android:fontFamily="@font/open_sans_italic"
+        android:textSize="13sp"
+        android:layout_marginTop="5dp"
+
+        />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/dishdescription"
+        app:layout_constraintLeft_toLeftOf="@+id/dishname"
+        android:text="$15"
+        android:textColor="@color/text2"
+        android:fontFamily="@font/open_sans_bold"
+        android:layout_marginTop="2dp"
+        android:textSize="18sp"
+        android:elevation="15dp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

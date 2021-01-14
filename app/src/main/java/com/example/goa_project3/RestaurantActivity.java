@@ -80,7 +80,7 @@ public class RestaurantActivity extends AppCompatActivity {
             Fragment disheslist = disheslistr.newInstance(heading, dishes);
 
             //add to linear layout
-            fragmentTransaction.add(R.id.promotions, disheslist,null);
+            fragmentTransaction.add(R.id.disheslistscontainer,disheslist);
 
             //end fragment transaction
             fragmentTransaction.commit();
