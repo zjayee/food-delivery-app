@@ -62,7 +62,11 @@ public class CartActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-            Fragment CartRestaurantFragment = com.example.goa_project3.CartRestaurantFragment.newInstance(restaurant,dishes);
+            Fragment cartRestaurantFragment = com.example.goa_project3.CartRestaurantFragment.newInstance(restaurant,dishes);
+
+            fragmentTransaction.add(R.id.dishfragmentcontainer,cartRestaurantFragment);
+
+            fragmentTransaction.commit();
 
         }
     }
