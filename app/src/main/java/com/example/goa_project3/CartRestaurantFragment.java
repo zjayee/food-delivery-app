@@ -1,28 +1,38 @@
 package com.example.goa_project3;
 
+import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CartRestaurantFragment#newInstance} factory method to
+ * Use the {@link disheslist#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class CartRestaurantFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String RESTAURANT = "retaurant";
+    private static final String DISHES = "dishes";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public CartRestaurantFragment() {
         // Required empty public constructor
@@ -32,16 +42,16 @@ public class CartRestaurantFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CartRestaurantFragment.
+     * @param restaurant title of list
+     * @param dishes contents of list
+     * @return A new instance of fragment disheslist.
      */
-    // TODO: Rename and change types and number of parameters
-    public static CartRestaurantFragment newInstance(String param1, String param2) {
+
+    public static CartRestaurantFragment newInstance(String restaurant, ArrayList<Dish> dishes) {
         CartRestaurantFragment fragment = new CartRestaurantFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable(RESTAURANT, restaurant);
+        args.putSerializable(DISHES, dishes);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,15 +60,104 @@ public class CartRestaurantFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            restaurant = (Restaurant) getArguments().getSerializable(RESTAURANT);
+            dishes = (ArrayList<Dish>) getArguments().getSerializable(DISHES);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart_restaurant, container, false);
+        rootView = inflater.inflate(R.layout.fragment_disheslist, container, false);
+        setupRestaurant();
+        setupRecyclerView();
+        return rootView;
     }
+
+    private Restaurant restaurant;
+    private ArrayList<Dish> dishes;
+    private View rootView;
+    private RecyclerView recyclerView;
+
+    private void setupRestaurant(){
+        //TODO: setup
+    }
+
+    private void  setupRecyclerView(){
+        recyclerView = rootView.findViewById(R.id.dishrecyclerview);
+        recyclerView.setNestedScrollingEnabled(false);
+        //create linear layout manager for recycler view
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+        //set adaptor
+        DishAdapter dishAdapter = new DishAdapter(getContext(), dishes);
+        recyclerView.setAdapter(dishAdapter);
+
+    }
+
+    private void userTappedOnPosition(int position){
+        //TODO: Navigate to dishes details screen
+
+    }
+
+    private class DishAdapter extends RecyclerView.Adapter<DishViewHolder>{
+        Context context;
+        ArrayList<Dish> dishes;
+
+        DishAdapter(Context context, ArrayList<Dish> dishes){
+            this.context = context;
+            this.dishes = dishes;
+        }
+        @NonNull
+        @Override
+        public DishViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View itemView = inflater.inflate(R.layout.dishcardborderless, parent, false);
+            DishViewHolder viewHolder = new DishViewHolder(itemView);
+            return viewHolder;
+
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull DishViewHolder holder, int position) {
+            Dish dish = dishes.get(position);
+
+            holder.dishimage.setImageResource(dish.getImage());
+            holder.dishname.setText(dish.getName());
+            holder.dishdescription.setText(dish.getDescription());
+            holder.dishprice.setText("$"+dish.getPrice());
+
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return dishes.size();
+        }
+    }
+
+    private class DishViewHolder extends RecyclerView.ViewHolder{
+
+        public View itemView;
+        public ImageView dishimage;
+        public TextView dishname;
+        public TextView dishdescription;
+        public TextView dishprice;
+
+        public DishViewHolder(@NonNull View itemView) {
+            super(itemView);
+            this.itemView = itemView;
+            this.dishimage = itemView.findViewById(R.id.dishimage);
+            this.dishname = itemView.findViewById(R.id.dishname);
+            this.dishdescription = itemView.findViewById(R.id.dishdescription);
+            this.dishprice = itemView.findViewById(R.id.price);
+
+        }
+    }
+
+
+
 }

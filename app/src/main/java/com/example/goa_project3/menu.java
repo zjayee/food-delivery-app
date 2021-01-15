@@ -1,6 +1,7 @@
 package com.example.goa_project3;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 
@@ -90,9 +91,7 @@ public class menu extends Fragment {
         favourites = rootView.findViewById(R.id.favouritesbutton);
         rewards = rootView.findViewById(R.id.rewardsbutton);
         nightmode = rootView.findViewById(R.id.nightmodebutton);
-        home.setBackgroundColor(R.color.transparent);
 
-        home.setBackgroundResource(R.drawable.menuselected);
 
         //TODO: set on click listeners to go to pages
         home.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +104,8 @@ public class menu extends Fragment {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), CartActivity.class);
+                startActivity(intent);
             }
         });
 

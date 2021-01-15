@@ -33,6 +33,11 @@
     android:layout_height="wrap_content"
     app:layout_constraintTop_toTopOf="parent"
     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
     <FrameLayout
         android:id="@+id/restaurantcover"
         android:layout_width="match_parent"
@@ -45,7 +50,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         />
-
+</LinearLayout>
 </ScrollView>
 
     <androidx.cardview.widget.CardView
@@ -80,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text1"
+                android:textColor="@color/white"
                 android:text="To Checkout"
                 android:fontFamily="@font/playfair_display_bold"
                 android:textSize="19sp"

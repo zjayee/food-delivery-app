@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,21 +45,45 @@ public class MainActivity extends AppCompatActivity {
 
 
     void createsamplerestaurantfortesting(){
-        Restaurant restaurant = new Restaurant("a","b",R.drawable.steak, null, (float) 3.4);
+        HashMap<String, ArrayList<Dish>> menu = new HashMap<>();
+        ArrayList<Dish> popularItems = new ArrayList<>();
+        Dish dish = new Dish("Alaska Roll","Avocado, salmon on the top, cucumber", R.drawable.alaskaroll, 6);
+        Dish dish1 = new Dish("Dynamite Roll","Prawn tempura, lettuce, cucumber", R.drawable.dynamiteroll, 6);
+        Dish dish2 = new Dish("California Roll","Crab meat, cucumber, avocado", R.drawable.californiaroll, 5);
+        Dish dish3 = new Dish("Salmon Sashimi","Spicy salmon sashimi", R.drawable.spicysalmonsashimi, 9);
+        popularItems.add(dish);
+        popularItems.add(dish1);
+        popularItems.add(dish2);
+        popularItems.add(dish3);
+
+
+        ArrayList<Dish> rolls = new ArrayList<>();
+        Dish rdish = new Dish("Alaska Roll","Avocado, salmon on the top, cucumber", R.drawable.alaskaroll, 6);
+        Dish rdish1 = new Dish("Dynamite Roll","Prawn tempura, lettuce, cucumber", R.drawable.dynamiteroll, 6);
+        Dish rdish2 = new Dish("California Roll","Crab meat, cucumber, avocado", R.drawable.californiaroll, 5);
+        rolls.add(rdish);
+        rolls.add(rdish1);
+        rolls.add(rdish2);
+        menu.put("Rolls", rolls);
+        menu.put("Popular Items", popularItems);
+
+        Restaurant restaurant = new Restaurant("Sushi Garden","Asian",R.drawable.sushi, menu, (float) 4.8);
         recommendedrestaurants.add(restaurant);
-        Restaurant restaurant1 = new Restaurant("c","d",R.drawable.steak, null, (float) 3.4);
+        Restaurant restaurant1 = new Restaurant("The Keg","Western",R.drawable.steak, null, (float) 4.2);
         recommendedrestaurants.add(restaurant1);
-        Restaurant restaurant2 = new Restaurant("e","b",R.drawable.steak, null, (float) 3.4);
+        Restaurant restaurant2 = new Restaurant("Mcdonalds","Fast Food",R.drawable.mcdonalds, null, (float) 3.4);
         recommendedrestaurants.add(restaurant2);
     }
 
     void createsampledishesfortesting(){
-        Dish dish = new Dish("a","bc", R.drawable.steak, 30);
-        Dish dish1 = new Dish("c","bc", R.drawable.steak, 30);
-        Dish dish2 = new Dish("d","bc", R.drawable.steak, 30);
+        Dish dish = new Dish("Alaska Roll","Avocado, salmon on the top, cucumber", R.drawable.alaskaroll, 6);
+        Dish dish1 = new Dish("Hamburger","Bread, Beef Patty, Cheese", R.drawable.mcdonalds, 4);
+        Dish dish2 = new Dish("Salmon Sashimi","Spicy salmon sashimi", R.drawable.spicysalmonsashimi, 9);
+        Dish dish3 = new Dish("Steak and Fries","Steak with a side of fried", R.drawable.steak, 32);
         promotiondishes.add(dish);
         promotiondishes.add(dish1);
         promotiondishes.add(dish2);
+        promotiondishes.add(dish3);
     }
 
     void setuprecommendedffragment(){
