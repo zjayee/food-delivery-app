@@ -23,13 +23,12 @@ public class Cart {
     private Cart() {
     }  // Don't allow instantiation outside of this class
 
-    public static Cart getSharedInstance() {
-        return sharedInstance;
-    }
 
-    public static HashMap<Restaurant, ArrayList<Dish>> getCartContents() {
+    public static HashMap<Restaurant, ArrayList<Dish>> getCartContents(){
         return cartContents;
     }
+
+
 
     public static void addCartItem(Restaurant restaurant, Dish dish, Integer quantity) {
         for (int i = 0; i < quantity; i++) {
