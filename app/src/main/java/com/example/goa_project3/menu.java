@@ -25,12 +25,11 @@ import android.widget.LinearLayout;
  */
 public class menu extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String CURRENTPAGE = "currentpage";
 
 
-    // TODO: Rename and change types of parameters
     private String currentPage;
 
 

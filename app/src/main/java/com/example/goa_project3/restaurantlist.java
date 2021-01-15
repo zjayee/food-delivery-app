@@ -28,7 +28,7 @@ import java.util.ArrayList;
  */
 public class restaurantlist extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String HEADING = "heading";
     private static final String RESTAURANTS = "restaurants";
@@ -46,7 +46,7 @@ public class restaurantlist extends Fragment {
      * @param restaurants contents of list
      * @return A new instance of fragment restaurantlist.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static restaurantlist newInstance(String heading, ArrayList<Restaurant> restaurants) {
         restaurantlist fragment = new restaurantlist();
         Bundle args = new Bundle();

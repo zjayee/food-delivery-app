@@ -28,7 +28,7 @@ import java.util.ArrayList;
  */
 public class disheslistr extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String HEADING = "heading";
     private static final String DISHES = "dishes";
@@ -46,7 +46,7 @@ public class disheslistr extends Fragment {
      * @param dishes contents of list
      * @return A new instance of fragment disheslist.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static disheslistr newInstance(String heading, ArrayList<Dish> dishes) {
         disheslistr fragment = new disheslistr();
         Bundle args = new Bundle();
@@ -101,7 +101,7 @@ public class disheslistr extends Fragment {
     }
 
     private void userTappedOnPosition(int position){
-        //TODO: Navigate to dishes details screen
+
 
     }
 
@@ -132,7 +132,7 @@ public class disheslistr extends Fragment {
             holder.dishdescription.setText(dish.getDescription());
             holder.dishprice.setText("$"+dish.getPrice());
 
-            //TODO: change
+
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

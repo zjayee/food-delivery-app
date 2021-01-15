@@ -38,8 +38,7 @@ public class CartActivity extends AppCompatActivity {
 //            heading = (String)pair.getKey();
 //            dishes = (ArrayList<Dish>)pair.getValue();
 //
-//            FragmentManager fragmentManager = getSupportFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
 //
 //            //create disheslist fragment
 //            Fragment disheslist = disheslistr.newInstance(heading, dishes);
@@ -51,6 +50,21 @@ public class CartActivity extends AppCompatActivity {
 //            fragmentTransaction.commit();
 //
 //        }
+
+        Iterator it = cartContents.entrySet().iterator();
+        while(it.hasNext()){
+            Restaurant restaurant;
+            ArrayList<Dish> dishes;
+            Map.Entry pair = (Map.Entry)it.next();
+            restaurant = (Restaurant)pair.getKey();
+            dishes = (ArrayList<Dish>) pair.getValue();
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            Fragment CartRestaurantFragment = com.example.goa_project3.CartRestaurantFragment.newInstance(restaurant,dishes);
+
+        }
     }
 
 }

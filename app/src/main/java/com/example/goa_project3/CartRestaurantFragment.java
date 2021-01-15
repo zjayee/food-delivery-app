@@ -28,7 +28,7 @@ import java.util.ArrayList;
  */
 public class CartRestaurantFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String RESTAURANT = "retaurant";
     private static final String DISHES = "dishes";
@@ -47,7 +47,7 @@ public class CartRestaurantFragment extends Fragment {
      * @return A new instance of fragment disheslist.
      */
 
-    public static CartRestaurantFragment newInstance(String restaurant, ArrayList<Dish> dishes) {
+    public static CartRestaurantFragment newInstance(Restaurant restaurant, ArrayList<Dish> dishes) {
         CartRestaurantFragment fragment = new CartRestaurantFragment();
         Bundle args = new Bundle();
         args.putSerializable(RESTAURANT, restaurant);
@@ -98,10 +98,7 @@ public class CartRestaurantFragment extends Fragment {
 
     }
 
-    private void userTappedOnPosition(int position){
-        //TODO: Navigate to dishes details screen
 
-    }
 
     private class DishAdapter extends RecyclerView.Adapter<DishViewHolder>{
         Context context;

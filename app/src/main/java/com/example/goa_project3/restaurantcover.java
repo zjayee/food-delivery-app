@@ -19,11 +19,11 @@ import android.widget.TextView;
  */
 public class restaurantcover extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
+
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String RESTAURANT = "restaurant";
 
-    // TODO: Rename and change types of parameters
+
     private Restaurant restaurant;
 
     public restaurantcover() {
@@ -37,7 +37,7 @@ public class restaurantcover extends Fragment {
      * @param restaurant Parameter 1.
      * @return A new instance of fragment restaurantcover.
      */
-    // TODO: Rename and change types and number of parameters
+
     public static restaurantcover newInstance(Restaurant restaurant) {
         restaurantcover fragment = new restaurantcover();
         Bundle args = new Bundle();
