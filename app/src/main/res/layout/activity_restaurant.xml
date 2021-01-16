@@ -72,9 +72,10 @@
             app:cardElevation="2dp"
             >
         <TextView
+            android:id="@+id/itemsnumbertext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4 items"
+            android:text="0 items"
             android:fontFamily="@font/open_sans_bold"
             android:textSize="13sp"
             android:textColor="@color/white"

@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="Current Location"
+            android:text="Vancouver"
             android:fontFamily="@font/playfair_display_bold"
             android:textColor="@color/text1"
             android:textSize="16sp"
@@ -176,6 +176,7 @@
             >
 
             <TextView
+                android:id="@+id/totalitemstext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4 items"

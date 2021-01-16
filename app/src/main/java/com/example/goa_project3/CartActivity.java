@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,31 +26,11 @@ public class CartActivity extends AppCompatActivity {
         cartContents = cart.getCartContents();
 
         setupCartItems();
+        setupHeadings();
 
     }
 
     private void setupCartItems(){
-//        menu = restaurant.getMenu();
-//        Iterator it = menu.entrySet().iterator();
-//        while (it.hasNext()){
-//            String heading;
-//            ArrayList<Dish> dishes;
-//            Map.Entry pair = (Map.Entry)it.next();
-//            heading = (String)pair.getKey();
-//            dishes = (ArrayList<Dish>)pair.getValue();
-//
-
-//
-//            //create disheslist fragment
-//            Fragment disheslist = disheslistr.newInstance(heading, dishes);
-//
-//            //add to linear layout
-//            fragmentTransaction.add(R.id.disheslistscontainer,disheslist);
-//
-//            //end fragment transaction
-//            fragmentTransaction.commit();
-//
-//        }
 
         Iterator it = cartContents.entrySet().iterator();
         while(it.hasNext()){
@@ -69,6 +50,22 @@ public class CartActivity extends AppCompatActivity {
             fragmentTransaction.commit();
 
         }
+    }
+
+
+    private void setupHeadings(){
+        Integer amount = Cart.getItemNum();
+        Integer totalPrice = Cart.getTotalPrice();
+
+        TextView carttext = findViewById(R.id.cartText);
+        carttext.setText("My Cart ("+amount+")");
+
+        TextView numItemsText = findViewById(R.id.totalitemstext);
+        numItemsText.setText(amount+" Items");
+
+        TextView totalPriceText = findViewById(R.id.totalnumbertext);
+        totalPriceText.setText("$"+totalPrice);
+
     }
 
 }

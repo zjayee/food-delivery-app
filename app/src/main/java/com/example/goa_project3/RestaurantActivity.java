@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +34,7 @@ public class RestaurantActivity extends AppCompatActivity {
         setupBackButton();
         setupRestaurantCover();
         setupDishesFragment();
+        setupItemNumber();
 
     }
 
@@ -62,7 +64,7 @@ public class RestaurantActivity extends AppCompatActivity {
         });
     }
 
-    void setupDishesFragment(){
+    private void setupDishesFragment(){
 
         menu = restaurant.getMenu();
         Iterator it = menu.entrySet().iterator();
@@ -86,6 +88,13 @@ public class RestaurantActivity extends AppCompatActivity {
             fragmentTransaction.commit();
 
         }
+    }
+
+    private void setupItemNumber(){
+        TextView itemNumberText = findViewById(R.id.itemsnumbertext);
+        //TODO: set item numbers to correct number
 
     }
+
+
 }
