@@ -1,5 +1,6 @@
 package com.example.goa_project3;
 
+import android.app.Activity;
 import android.content.Context;
 import android.media.Image;
 import android.os.Bundle;
@@ -88,6 +89,7 @@ public class disheslistr extends Fragment {
     private Restaurant restaurant;
     private View rootView;
     private RecyclerView recyclerView;
+    RestaurantActivity activity;
     Cart cart;
     HashMap<Restaurant,ArrayList<Dish>> cartContents;
 
@@ -111,7 +113,7 @@ public class disheslistr extends Fragment {
     }
 
     private void userTappedOnPosition(int position, View itemview){
-
+        activity = (RestaurantActivity)getActivity();
         //if pickernumberstepper tapped add to cart, update item number
         Dish dish = dishes.get(position);
         pickernumberstepper pickernumberstepper = itemview.findViewById(R.id.pickernumberstepper);
@@ -141,17 +143,17 @@ public class disheslistr extends Fragment {
            }
 
 
-           while(quantity>oldQuantity) {
+           while(quantity<oldQuantity) {
                for (int i = 0; i < cartDishes.size(); i++) {
                    if (cartDishes.get(i).getName().equals(dish.getName())) {
                        cartDishes.remove(i);
-                       quantity--;
+                       oldQuantity--;
                        break;
                    }
                }
            }
 
-
+            activity.setupItemNumber();
 
     }
 

@@ -17,4 +17,5 @@
     <color name="background">#2B3034</color>
     <color name="highlightcolor">#43AFDE</color>
     <color name="dividercolor">#7C7C7C</color>
+    <color name="transluscentcard">#CC72797C</color>
 </resources>

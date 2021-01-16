@@ -41,7 +41,7 @@ public class menu extends Fragment {
      * @return A new instance of fragment menu.
      */
 
-    public static menu newInstance(String currentPage) {
+    public static menu newInstance() {
         menu fragment = new menu();
         return fragment;
     }

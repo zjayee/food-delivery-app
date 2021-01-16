@@ -99,7 +99,7 @@ public class RestaurantActivity extends AppCompatActivity {
         }
     }
 
-    private void setupItemNumber(){
+    void setupItemNumber(){
         TextView itemNumberText = findViewById(R.id.itemsnumbertext);
         //TODO: set item numbers to correct number
         Cart cart = Cart.getInstance();

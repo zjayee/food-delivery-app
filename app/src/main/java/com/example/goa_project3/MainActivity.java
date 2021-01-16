@@ -121,9 +121,9 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-       Fragment menu = com.example.goa_project3.menu.newInstance("home");
+        Fragment menu = com.example.goa_project3.menu.newInstance();
 
-       fragmentTransaction.replace(R.id.menu, menu, null);
+        fragmentTransaction.replace(R.id.menu, menu, null);
 
         //end fragment transaction
         fragmentTransaction.commit();
