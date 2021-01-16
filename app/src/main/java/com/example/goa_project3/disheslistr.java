@@ -89,6 +89,8 @@ public class disheslistr extends Fragment {
     private Restaurant restaurant;
     private View rootView;
     private RecyclerView recyclerView;
+    pickernumberstepper pickernumberstepper;
+
     RestaurantActivity activity;
     Cart cart;
     HashMap<Restaurant,ArrayList<Dish>> cartContents;
@@ -116,7 +118,7 @@ public class disheslistr extends Fragment {
         activity = (RestaurantActivity)getActivity();
         //if pickernumberstepper tapped add to cart, update item number
         Dish dish = dishes.get(position);
-        pickernumberstepper pickernumberstepper = itemview.findViewById(R.id.pickernumberstepper);
+        pickernumberstepper = itemview.findViewById(R.id.pickernumberstepper);
         Integer quantity = pickernumberstepper.getCurrentValue();
         Integer oldQuantity = 0;
 
@@ -183,6 +185,7 @@ public class disheslistr extends Fragment {
             holder.dishname.setText(dish.getName());
             holder.dishdescription.setText(dish.getDescription());
             holder.dishprice.setText("$"+dish.getPrice());
+            //holder.pickernumberstepper.setCurrentValue();
 
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
