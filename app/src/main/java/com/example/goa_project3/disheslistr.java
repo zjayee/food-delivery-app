@@ -20,6 +20,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +33,7 @@ public class disheslistr extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String HEADING = "heading";
     private static final String DISHES = "dishes";
+    private static final String RESTAURANT = "restaurant";
 
 
     public disheslistr() {
@@ -47,11 +49,12 @@ public class disheslistr extends Fragment {
      * @return A new instance of fragment disheslist.
      */
 
-    public static disheslistr newInstance(String heading, ArrayList<Dish> dishes) {
+    public static disheslistr newInstance(String heading, ArrayList<Dish> dishes, Restaurant restaurant) {
         disheslistr fragment = new disheslistr();
         Bundle args = new Bundle();
         args.putString(HEADING, heading);
         args.putSerializable(DISHES, dishes);
+        args.putSerializable(RESTAURANT,restaurant);
         fragment.setArguments(args);
         return fragment;
     }
@@ -62,6 +65,7 @@ public class disheslistr extends Fragment {
         if (getArguments() != null) {
             heading = getArguments().getString(HEADING);
             dishes = (ArrayList<Dish>) getArguments().getSerializable(DISHES);
+            restaurant = (Restaurant) getArguments().getSerializable(RESTAURANT);
         }
 
     }
@@ -73,13 +77,19 @@ public class disheslistr extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_disheslistr, container, false);
         setupHeading();
         setupRecyclerView();
+        cart = Cart.getInstance();
+        cartContents = Cart.getCartContents();
         return rootView;
+
     }
 
     private String heading;
     private ArrayList<Dish> dishes;
+    private Restaurant restaurant;
     private View rootView;
     private RecyclerView recyclerView;
+    Cart cart;
+    HashMap<Restaurant,ArrayList<Dish>> cartContents;
 
     private void setupHeading(){
         TextView headingtextview = rootView.findViewById(R.id.labeltextview);
@@ -100,7 +110,47 @@ public class disheslistr extends Fragment {
 
     }
 
-    private void userTappedOnPosition(int position){
+    private void userTappedOnPosition(int position, View itemview){
+
+        //if pickernumberstepper tapped add to cart, update item number
+        Dish dish = dishes.get(position);
+        pickernumberstepper pickernumberstepper = itemview.findViewById(R.id.pickernumberstepper);
+        Integer quantity = pickernumberstepper.getCurrentValue();
+        Integer oldQuantity = 0;
+
+        //update dish quantity in cart
+        HashMap<Restaurant, ArrayList<Dish>> cartContents = Cart.getCartContents();
+       ArrayList<Dish> cartDishes = cartContents.get(restaurant);
+       if(cartDishes!=null){
+           for(int i = 0; i<cartDishes.size(); i++){
+               if (cartDishes.get(i).getName().equals(dish.getName())){
+                   oldQuantity++;
+               }
+           }
+       }else{
+           oldQuantity = 0;
+           ArrayList<Dish> dishArrayList= new ArrayList<>();
+           cartContents.put(restaurant,dishArrayList);
+           cartDishes = cartContents.get(restaurant);
+       }
+
+
+           while(oldQuantity<quantity){
+               cartDishes.add(dish);
+               oldQuantity++;
+           }
+
+
+           while(quantity>oldQuantity) {
+               for (int i = 0; i < cartDishes.size(); i++) {
+                   if (cartDishes.get(i).getName().equals(dish.getName())) {
+                       cartDishes.remove(i);
+                       quantity--;
+                       break;
+                   }
+               }
+           }
+
 
 
     }
@@ -136,7 +186,14 @@ public class disheslistr extends Fragment {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    userTappedOnPosition(position);
+
+                }
+            });
+
+            holder.pickernumberstepper.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    userTappedOnPosition(position, holder.itemView);
                 }
             });
 
@@ -155,6 +212,7 @@ public class disheslistr extends Fragment {
         public TextView dishname;
         public TextView dishdescription;
         public TextView dishprice;
+        public pickernumberstepper pickernumberstepper;
 
 
         public DishViewHolder(@NonNull View itemView) {
@@ -164,7 +222,7 @@ public class disheslistr extends Fragment {
             this.dishname = itemView.findViewById(R.id.dishname);
             this.dishdescription = itemView.findViewById(R.id.dishdescription);
             this.dishprice = itemView.findViewById(R.id.price);
-
+            this.pickernumberstepper = itemView.findViewById(R.id.pickernumberstepper);
 
         }
     }

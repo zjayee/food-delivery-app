@@ -27,10 +27,6 @@ public class menu extends Fragment {
 
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String CURRENTPAGE = "currentpage";
-
-
-    private String currentPage;
 
 
     public menu() {
@@ -47,9 +43,6 @@ public class menu extends Fragment {
 
     public static menu newInstance(String currentPage) {
         menu fragment = new menu();
-        Bundle args = new Bundle();
-        args.putString(CURRENTPAGE, currentPage);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -57,7 +50,7 @@ public class menu extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            currentPage = getArguments().getString(CURRENTPAGE);
+
         }
     }
 

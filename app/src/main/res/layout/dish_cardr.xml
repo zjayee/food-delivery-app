@@ -88,6 +88,7 @@
 
 
    <com.example.goa_project3.pickernumberstepper
+       android:id="@+id/pickernumberstepper"
        android:layout_width="85dp"
        android:layout_height="25dp"
        app:layout_constraintTop_toBottomOf="@id/dishdescription"

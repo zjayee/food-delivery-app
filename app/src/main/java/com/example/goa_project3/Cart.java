@@ -8,7 +8,7 @@ import java.util.Map;
 public class Cart {
 
     //properties
-    private static HashMap<Restaurant, ArrayList<Dish>> cartContents;
+    private static HashMap<Restaurant, ArrayList<Dish>> cartContents = new HashMap<>();
 
     // Singleton
     public static Cart getInstance() {

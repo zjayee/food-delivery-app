@@ -1,6 +1,7 @@
 package com.example.goa_project3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,6 +22,7 @@ public class RestaurantActivity extends AppCompatActivity {
     Restaurant restaurant;
     ImageButton backbutton;
     HashMap menu;
+    CardView toCheckout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,14 @@ public class RestaurantActivity extends AppCompatActivity {
         setupRestaurantCover();
         setupDishesFragment();
         setupItemNumber();
+        setupToCheckout();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setupItemNumber();
     }
 
     void setupRestaurantCover(){
@@ -79,7 +88,7 @@ public class RestaurantActivity extends AppCompatActivity {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
             //create disheslist fragment
-            Fragment disheslist = disheslistr.newInstance(heading, dishes);
+            Fragment disheslist = disheslistr.newInstance(heading, dishes, restaurant);
 
             //add to linear layout
             fragmentTransaction.add(R.id.disheslistscontainer,disheslist);
@@ -93,6 +102,31 @@ public class RestaurantActivity extends AppCompatActivity {
     private void setupItemNumber(){
         TextView itemNumberText = findViewById(R.id.itemsnumbertext);
         //TODO: set item numbers to correct number
+        Cart cart = Cart.getInstance();
+        HashMap<Restaurant, ArrayList<Dish>> cartContents = Cart.getCartContents();
+        Integer itemNumber;
+        if(cartContents.containsKey(restaurant)) {
+            ArrayList<Dish> cartDishes = cartContents.get(restaurant);
+
+                itemNumber = cartDishes.size();
+
+        }else{
+            itemNumber = 0;
+        }
+        itemNumberText.setText(itemNumber + " Items");
+    }
+
+    private void setupToCheckout(){
+        toCheckout = findViewById(R.id.tocheckoutbutton);
+
+        toCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), CartActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 

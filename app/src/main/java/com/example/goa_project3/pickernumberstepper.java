@@ -54,6 +54,10 @@ public class pickernumberstepper extends LinearLayout implements View.OnClickLis
 
     }
 
+    public Integer getCurrentValue(){
+        return currentValue;
+    }
+
     private void refreshCurrentValue(){
         amounttextview.setText(currentValue.toString());
     }

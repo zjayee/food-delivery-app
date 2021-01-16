@@ -70,7 +70,7 @@ public class CartRestaurantFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_disheslist, container, false);
+        rootView = inflater.inflate(R.layout.fragment_cart_restaurant, container, false);
         setupRestaurant();
         setupRecyclerView();
         return rootView;
@@ -82,7 +82,14 @@ public class CartRestaurantFragment extends Fragment {
     private RecyclerView recyclerView;
 
     private void setupRestaurant(){
-        //TODO: setup
+
+        TextView restaurantNameText = rootView.findViewById(R.id.restaurantname);
+        RatingBar ratingBar = rootView.findViewById(R.id.ratingBar);
+
+        restaurantNameText.setText(restaurant.getName());
+        ratingBar.setRating(restaurant.getRating());
+
+
     }
 
     private void  setupRecyclerView(){
