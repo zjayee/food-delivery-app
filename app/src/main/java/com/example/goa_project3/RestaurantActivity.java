@@ -76,6 +76,9 @@ public class RestaurantActivity extends AppCompatActivity {
     private void setupDishesFragment(){
 
         menu = restaurant.getMenu();
+        if(menu==null){
+            menu = new HashMap();
+        }
         Iterator it = menu.entrySet().iterator();
         while (it.hasNext()){
             String heading;
